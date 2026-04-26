@@ -1,0 +1,642 @@
+/* --- Variables (палитра как ref1: шалфей, крем, оливка, тёмный мох) --- */
+:root {
+  --bg: #e6ebe3;
+  --bg-panel: #f7f5ef;
+  --bg-card: #fffcf7;
+  --text: #2a2f27;
+  --text-muted: #5a6354;
+  --green-900: #1a251c;
+  --green-800: #2c3e2d;
+  --green-600: #4a6b4e;
+  --green-500: #5c7a5e;
+  --green-300: #8fa98f;
+  --green-100: #d4ddd0;
+  --taupe: #9a8f82;
+  --border: #b8c4b0;
+  --accent: #6d4c3c;
+  --accent-light: #8f5f45;
+  --accent-hover: #4f3629;
+  --accent-soft: rgba(74, 107, 78, 0.12);
+  --deco-line: #4a6b4e;
+  --path-heart: #3d5a40;
+  --shadow: 0 16px 48px rgba(26, 37, 28, 0.09);
+  --radius: 16px;
+  --font-serif: "Cormorant Garamond", Georgia, serif;
+  --font-script: "Caveat", cursive;
+  --font-sans: "Source Sans 3", system-ui, sans-serif;
+  --ease: cubic-bezier(0.4, 0, 0.2, 1);
+  --greet-pad-x: clamp(1.15rem, 3vw, 1.5rem);
+}
+
+/* --- Reset & base --- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-weight: 300;
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--text);
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+h1,
+h2 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--green-900);
+  margin: 0;
+}
+
+main .section__title {
+  color: var(--green-800);
+  position: relative;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.1rem;
+}
+
+main .section__title::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  width: 2.5rem;
+  height: 2px;
+  background: var(--green-500);
+  border-radius: 1px;
+  opacity: 0.9;
+}
+
+.section--dress .section__title::after {
+  display: none;
+}
+
+a {
+  color: var(--green-600);
+  text-underline-offset: 3px;
+  transition: color 0.2s var(--ease);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--green-800);
+}
+
+/* --- Hero: один фон (ref2) + панель приглашения --- */
+.hero-surface {
+  position: relative;
+  min-height: min(50vh, 480px);
+  padding: clamp(1.25rem, 4vw, 2.5rem) 1rem 1.5rem;
+  background-color: #dce5da;
+  background-image: linear-gradient(
+      180deg,
+      rgba(247, 245, 239, 0.88) 0%,
+      rgba(230, 235, 227, 0.93) 100%
+    ),
+    url("media/hero-bg.jpg");
+  background-size: cover, cover;
+  background-position: center, center;
+  background-repeat: no-repeat, no-repeat;
+}
+
+/* --- Image placeholders --- */
+.ph-wrap {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(145deg, var(--green-100) 0%, #e8ede6 100%);
+  border: 1px solid var(--border);
+}
+
+.ph-wrap::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 50%,
+    rgba(255, 255, 255, 0.25) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.ph-wrap--couple {
+  width: 100%;
+  max-width: 640px;
+  margin-inline: auto;
+  margin-top: 2rem;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.ph-wrap--location,
+.ph-wrap--dress {
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.ph-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Empty src: keep layout, hide broken icon */
+.ph-img:not([src]),
+.ph-img[src=""] {
+  opacity: 0;
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* --- Шапка: композиция как ref2, цвета ref1 --- */
+.greetings {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 28rem;
+  margin-inline: auto;
+  padding: 0;
+}
+
+.greetings__inner {
+  animation: fadeUp 0.85s var(--ease) 0.2s both;
+  background: var(--bg-panel);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 4vw, 1.9rem) var(--greet-pad-x) 0;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(184, 196, 176, 0.6);
+  overflow: hidden;
+}
+
+.greetings__deco {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.2rem;
+  margin-bottom: 0.5rem;
+  color: var(--deco-line);
+}
+
+.greetings__wave {
+  display: block;
+  width: min(12rem, 80vw);
+  height: 1.25rem;
+  color: var(--deco-line);
+  opacity: 0.9;
+}
+
+.greetings__deco-heart {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-light);
+  font-size: 1.15rem;
+  line-height: 1;
+  margin-top: 0.1rem;
+}
+
+.greetings__deco-heart svg {
+  width: 1.2rem;
+  height: 1.1rem;
+}
+
+.greetings__eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--green-600);
+  margin: 0.35rem 0 0.5rem;
+  font-weight: 500;
+}
+
+.greetings__title {
+  font-family: var(--font-script);
+  font-size: clamp(2.75rem, 10vw, 3.5rem);
+  font-style: normal;
+  font-weight: 600;
+  line-height: 1.1;
+  margin-bottom: 0.9rem;
+  color: var(--green-800);
+  letter-spacing: 0.02em;
+}
+
+.greetings__lede {
+  margin: 0 auto 0;
+  color: var(--text-muted);
+  font-size: 1.02rem;
+  max-width: 100%;
+  line-height: 1.6;
+}
+
+/* Дата сразу под приглашением */
+.greetings__date {
+  font-family: var(--font-script);
+  font-size: clamp(2.2rem, 6vw, 2.8rem);
+  color: var(--accent-light);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  line-height: 1.1;
+  margin: 0.35rem 0 0.85rem;
+}
+
+.greetings__date time {
+  display: inline-block;
+}
+
+.greetings__strap {
+  margin: 0.85rem calc(-1 * var(--greet-pad-x)) 0;
+  padding: 0.45rem 0.5rem 0.5rem;
+  background: linear-gradient(90deg, var(--green-600) 0%, var(--green-500) 100%);
+  border-radius: 0 0 12px 12px;
+  overflow: hidden;
+}
+
+.greetings__strap-inner {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 0.72rem;
+  letter-spacing: 0.35em;
+  text-transform: uppercase;
+  color: #fffcf5;
+  font-weight: 500;
+  line-height: 1.2;
+  white-space: nowrap;
+  text-align: center;
+  opacity: 0.95;
+}
+
+.greetings__ornament {
+  width: 48px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--green-500), transparent);
+  margin: 2.25rem auto 0;
+}
+
+/* --- Sections --- */
+main {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 0 1.25rem 4rem;
+}
+
+.section {
+  padding: 2.75rem 0;
+  border-top: 1px solid var(--border);
+}
+
+main .section:first-child {
+  border-top: 0;
+  padding-top: 0.5rem;
+}
+
+header.greetings.section {
+  padding: 0;
+  border-top: 0;
+  background: transparent;
+}
+
+.section__title {
+  font-size: clamp(1.75rem, 4vw, 2.1rem);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.section__text {
+  margin: 0 0 1.25rem;
+  color: var(--text-muted);
+  text-align: center;
+  font-size: 1rem;
+}
+
+.section__text--center {
+  text-align: center;
+}
+
+.section__text--location {
+  text-align: left;
+  max-width: 36rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 1.25rem;
+}
+
+/* Календарь — сразу под блоком с датой в шапке, без крупного разрыва */
+.section--date {
+  padding-top: 1.25rem;
+}
+
+/* Calendar */
+.calendar {
+  max-width: 20rem;
+  margin: 2rem auto 0;
+  padding: 1.25rem 1rem 1.1rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.calendar__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 0.9rem;
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  color: var(--green-900);
+}
+
+.calendar__year {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  font-family: var(--font-sans);
+  font-weight: 400;
+}
+
+.calendar__dow,
+.calendar__grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.35rem 0.25rem;
+  text-align: center;
+  font-size: 0.78rem;
+}
+
+.calendar__dow {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.4rem;
+  font-weight: 500;
+}
+
+.calendar__dow span {
+  padding: 0.2rem 0;
+}
+
+.calendar__grid {
+  font-size: 0.9rem;
+  color: var(--text);
+  font-weight: 400;
+}
+
+.calendar__offset-1 {
+  visibility: hidden;
+  user-select: none;
+  color: transparent;
+  padding: 0.4rem 0.15rem;
+  font-size: 0.9rem;
+  pointer-events: none;
+}
+
+.calendar__grid span:not(.calendar__offset-1) {
+  padding: 0.4rem 0.15rem;
+  border-radius: 6px;
+}
+
+.calendar__day--highlight {
+  background: var(--accent);
+  color: #fff;
+  font-weight: 500;
+  box-shadow: 0 2px 10px rgba(143, 95, 69, 0.35);
+}
+
+/* --- Program: S-линия + карточки (без node-кружков) --- */
+.program-path {
+  display: grid;
+  grid-template-columns: 4.25rem 1fr;
+  gap: 0 0.65rem;
+  align-items: stretch;
+  max-width: 32rem;
+  margin: 1.75rem auto 0;
+}
+
+.program-path__track {
+  position: relative;
+  grid-column: 1;
+  grid-row: 1;
+  align-self: stretch;
+  min-height: 0;
+  min-width: 0;
+  width: 100%;
+}
+
+.program-path__track-svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  min-height: 18rem;
+  max-height: none;
+  overflow: visible;
+}
+
+.program-path__route {
+  filter: drop-shadow(0.5px 0.5px 0 rgba(255, 255, 255, 0.3));
+}
+
+.program-path__heart-ico {
+  fill: var(--path-heart);
+  opacity: 0.98;
+}
+
+.program-path__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.program-path__item {
+  position: relative;
+  display: block;
+  padding: 0.35rem 0 0.9rem;
+  margin: 0;
+}
+
+.program-path__item:last-child {
+  padding-bottom: 0.2rem;
+}
+
+.program-path__body {
+  width: 100%;
+  min-width: 0;
+  padding: 0.5rem 0.7rem 0.65rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(30, 45, 31, 0.05);
+}
+
+.program-path__time {
+  display: block;
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--green-800);
+  font-weight: 500;
+  line-height: 1.2;
+  margin: 0 0 0.2rem;
+}
+
+.program-path__title {
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--green-800);
+  margin: 0 0 0.45rem;
+  line-height: 1.35;
+}
+
+.program-path__note {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* --- Dress code + фото в одной секции --- */
+.section--dress .section__title {
+  padding-bottom: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.dress-card {
+  margin-top: 0.5rem;
+  padding: 1.5rem 1.4rem 1.45rem;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.6;
+  box-shadow: var(--shadow);
+}
+
+.dress-card p {
+  margin: 0;
+}
+
+.dress__photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.15rem;
+}
+
+/* --- Location --- */
+.location__photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.location__info {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.location__address {
+  margin: 0 0 0.75rem;
+  color: var(--text-muted);
+  font-size: 1rem;
+  line-height: 1.55;
+}
+
+.location__map-link {
+  display: inline-block;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+@media (max-width: 540px) {
+  .location__photos,
+  .dress__photos {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Reveal (scroll; requires JS: html.js-ready) --- */
+html.js-ready .reveal:not(.reveal--visible) {
+  opacity: 0;
+  transform: translateY(1.1rem);
+}
+
+html.js-ready .reveal {
+  transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+}
+
+html.js-ready .reveal--visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* --- Animations --- */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .greetings__inner {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  html.js-ready .reveal,
+  html.js-ready .reveal:not(.reveal--visible) {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none;
+  }
+}

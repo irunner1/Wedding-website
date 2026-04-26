@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Артём и Даша — свадьба</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div
+      class="hero-surface"
+      role="img"
+      aria-label="Фоновое фото: положите файл media/hero-bg.jpg"
+    >
+    <header class="greetings section reveal" id="greetings">
+      <div class="greetings__inner">
+        <div class="greetings__deco" aria-hidden="true">
+          <svg
+            class="greetings__wave"
+            viewBox="0 0 200 20"
+            preserveAspectRatio="xMidYMid meet"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 10 Q 25 2 50 10 T 100 10 T 150 10 T 200 10"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linecap="round"
+            />
+          </svg>
+          <span class="greetings__deco-heart">
+            <svg viewBox="0 0 24 24" width="1em" height="1em" focusable="false" aria-hidden="true">
+              <path
+                fill="currentColor"
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              />
+            </svg>
+          </span>
+        </div>
+        <p class="greetings__eyebrow">Свадьба</p>
+        <h1 class="greetings__title">Артём &amp; Даша</h1>
+        <p class="greetings__lede">
+          Мы вступаем в брак — и об этом счастье мечтаем поделиться с вами! Будет
+          небольшой праздник, много теплого света, музыка и танцы, всё, что
+          сделать такой день ещё уютнее. Сохраните дату, приходите
+          в хорошем настроении — нам очень важно разделить этот вечер с вами.
+        </p>
+        <p class="greetings__date">
+          <time datetime="2026-09-12">12.09.26</time>
+        </p>
+        <div class="greetings__strap" aria-hidden="true">
+          <span class="greetings__strap-inner">вы приглашены</span>
+        </div>
+      </div>
+    </header>
+    </div>
+
+    <main>
+      <section class="section section--date reveal" id="date" aria-labelledby="date-heading">
+        <h2 id="date-heading" class="visually-hidden">Календарь</h2>
+        <div
+          class="calendar"
+          role="img"
+          aria-label="Сентябрь 2026, двенадцатое — день свадьбы"
+        >
+          <div class="calendar__head">
+            <span class="calendar__month">Сентябрь</span>
+            <span class="calendar__year">2026</span>
+          </div>
+          <div class="calendar__dow" aria-hidden="true">
+            <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span
+            ><span>Пт</span><span>Сб</span><span>Вс</span>
+          </div>
+          <div class="calendar__grid" aria-hidden="true">
+            <span class="calendar__offset-1" aria-hidden="true">&nbsp;</span
+            ><span>1</span><span>2</span><span>3</span><span>4</span
+            ><span>5</span><span>6</span
+            ><span>7</span><span>8</span><span>9</span><span>10</span
+            ><span>11</span
+            ><span
+              class="calendar__day--highlight"
+              aria-current="date"
+              >12</span
+            ><span>13</span><span>14</span><span>15</span><span>16</span
+            ><span>17</span><span>18</span><span>19</span><span>20</span
+            ><span>21</span><span>22</span><span>23</span><span>24</span
+            ><span>25</span><span>26</span><span>27</span><span>28</span
+            ><span>29</span><span>30</span>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--timing reveal" id="timing" aria-labelledby="timing-heading">
+        <h2 id="timing-heading" class="section__title">Программа торжества</h2>
+        <p class="section__text">
+          Наш праздник выстроен как путь: от встречи и официального «да» до
+          вечерней встречи с близкими. Собрали ключевые точки на одной
+          тропинке, чтобы вам было проще планировать день. Если планы
+          чуть сдвинутся, мы скажем заранее.
+        </p>
+        <div class="program-path" aria-label="Программа дня — план по дню">
+          <div class="program-path__track" aria-hidden="true">
+            <svg
+              class="program-path__track-svg"
+              viewBox="0 0 80 220"
+              preserveAspectRatio="xMidYMin meet"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <defs>
+                <linearGradient id="pathGrad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" style="stop-color: #4a6b4e" />
+                  <stop offset="100%" style="stop-color: #3d5a40" />
+                </linearGradient>
+              </defs>
+              <g transform="translate(28 2) scale(1.4)">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  class="program-path__heart-ico"
+                />
+              </g>
+              <path
+                class="program-path__route"
+                d="M 40 40 C 8 60 8 100 40 120 C 72 140 72 160 40 180 C 8 200 8 210 40 200"
+                fill="none"
+                stroke="url(#pathGrad)"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+              <g transform="translate(28 186) scale(1.4)">
+                <path
+                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+                  class="program-path__heart-ico"
+                />
+              </g>
+            </svg>
+          </div>
+          <ol class="program-path__list">
+            <li class="program-path__item">
+              <div class="program-path__body">
+                <time class="program-path__time" datetime="2026-09-12T12:00"
+                  >12:00</time
+                >
+                <p class="program-path__title">Сбор у ЗАГСа</p>
+                <p class="program-path__note">
+                  Встречаемся у здания, дальше пойдём вместе — приходите за
+                  10–15 минут, чтобы никуда не бежать.
+                </p>
+              </div>
+            </li>
+            <li class="program-path__item">
+              <div class="program-path__body">
+                <time class="program-path__time" datetime="2026-09-12T12:15"
+                  >12:15</time
+                >
+                <p class="program-path__title">Церемония</p>
+                <p class="program-path__note">
+                  Само торжество — коротко, по-настоящему, с теми, кого мы
+                  хотим рядом в этот день.
+                </p>
+              </div>
+            </li>
+            <li class="program-path__item">
+              <div class="program-path__body">
+                <time class="program-path__time" datetime="2026-09-12T15:00"
+                  >15:00</time
+                >
+                <p class="program-path__title">Сбор у трансфера</p>
+                <p class="program-path__note">
+                  Переезд на площадку банкета: место встречи и маркер на
+                  карте — уточним ближе к сентябрю, следите за чатом.
+                </p>
+              </div>
+            </li>
+            <li class="program-path__item">
+              <div class="program-path__body">
+                <time class="program-path__time" datetime="2026-09-12T17:00"
+                  >17:00</time
+                >
+                <p class="program-path__title">Банкет</p>
+                <p class="program-path__note">
+                  Ужин, тосты, танцы — вечер, за который мы вас крепко
+                  обнимаем. Уезжайте, когда вам удобно, мы будем с вами до
+                  последнего трека.
+                </p>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="section section--dress reveal" id="dress" aria-labelledby="dress-heading">
+        <h2 id="dress-heading" class="section__title">Дресс-код</h2>
+        <div class="dress-card">
+          <p>
+            Для нас будет очень важен ваш вид: мы просим вечерний или
+            коктейльный наряд в спокойных натуральных оттенках — оливковый,
+            пудровый, песочный, приглушённо-золотой, графит, молочно-белый.
+            Костюм или платье, в котором вам тепло и празднично, без строгого
+            дресс-кода «только пиджак». Кроссовки вместо пары вечерней обуви —
+            только если так вы чувствуете себя на танцполе. Главное — уют и вы.
+          </p>
+        </div>
+        <h2 class="visually-hidden" id="dress-photos">Фотографии к дресс-коду</h2>
+        <div class="dress__photos" aria-labelledby="dress-photos">
+          <div class="ph-wrap ph-wrap--dress">
+            <img class="ph-img" src="" alt="Иллюстрация к дресс-коду 1" />
+          </div>
+          <div class="ph-wrap ph-wrap--dress">
+            <img class="ph-img" src="" alt="Иллюстрация к дресс-коду 2" />
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--location reveal" id="location" aria-labelledby="location-heading">
+        <h2 id="location-heading" class="section__title">Локация</h2>
+        <p class="section__text section__text--location">
+          Мы празднуем в Подмосковье: пространстве площадки «Ботаника» —
+          загород, свежий воздух и внимательный сервис. До площадки из Москвы
+          удобно на машине; парковка на территории, при необходимости
+          сориентируем по въезду. Приезжайте с запасом по времени в пиковые
+          часы, чтобы встретиться с нами спокойно, без суеты.
+        </p>
+        <div class="location__photos">
+          <div class="ph-wrap ph-wrap--location">
+            <img class="ph-img" src="" alt="Площадка — вид 1" />
+          </div>
+          <div class="ph-wrap ph-wrap--location">
+            <img class="ph-img" src="" alt="Площадка — вид 2" />
+          </div>
+        </div>
+        <div class="location__info">
+          <p class="location__address">
+            Московская область, Богородский городской округ, площадка «Ботаника»
+          </p>
+          <a
+            class="location__map-link"
+            href="https://yandex.ru/maps/-/CPGgFWyf"
+            >Открыть в Яндекс.Картах</a
+          >
+        </div>
+      </section>
+    </main>
+
+    <script src="main.js" defer></script>
+  </body>
+</html>
