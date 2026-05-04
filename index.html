@@ -3,26 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Артём и Даша — свадьба</title>
+    <title>Свадебное приглашение — 12.09.2026</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Source+Sans+3:wght@300;400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div
-      class="hero-surface"
-      role="img"
-      aria-label="Фоновое фото: положите файл media/hero-bg.jpg"
-    >
-    <header class="greetings section reveal" id="greetings">
-      <div class="greetings__inner">
-        <div class="greetings__deco" aria-hidden="true">
+    <section class="ref-hero reveal" id="hero" aria-labelledby="hero-heading">
+      <div class="ref-hero__panel">
+        <div class="ref-hero__deco" aria-hidden="true">
           <svg
-            class="greetings__wave"
+            class="ref-hero__wave"
             viewBox="0 0 200 20"
             preserveAspectRatio="xMidYMid meet"
             xmlns="http://www.w3.org/2000/svg"
@@ -35,8 +30,8 @@
               stroke-linecap="round"
             />
           </svg>
-          <span class="greetings__deco-heart">
-            <svg viewBox="0 0 24 24" width="1em" height="1em" focusable="false" aria-hidden="true">
+          <span class="ref-hero__heart">
+            <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true">
               <path
                 fill="currentColor"
                 d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
@@ -44,207 +39,184 @@
             </svg>
           </span>
         </div>
-        <p class="greetings__eyebrow">Свадьба</p>
-        <h1 class="greetings__title">Артём &amp; Даша</h1>
-        <p class="greetings__lede">
-          Мы вступаем в брак — и об этом счастье мечтаем поделиться с вами! Будет
-          небольшой праздник, много теплого света, музыка и танцы, всё, что
-          сделать такой день ещё уютнее. Сохраните дату, приходите
-          в хорошем настроении — нам очень важно разделить этот вечер с вами.
+        <h1 id="hero-heading" class="visually-hidden">Приглашение на свадьбу</h1>
+        <p class="ref-hero__title">
+          <span class="ref-hero__title-serif">Наша Свадьба</span>
+          <span class="ref-hero__title-script">Даша & Артём</span>
         </p>
-        <p class="greetings__date">
-          <time datetime="2026-09-12">12.09.26</time>
-        </p>
-        <div class="greetings__strap" aria-hidden="true">
-          <span class="greetings__strap-inner">вы приглашены</span>
+        <div class="ref-hero__photo-row">
+          <!-- <p class="ref-hero__caption ref-hero__caption--left">
+            маленький шаг<br />большой день
+          </p> -->
+          <div class="ref-hero__photo ph-wrap ph-wrap--hero">
+            <img class="ph-img" src="media/IMG_3581.JPG" alt="Фото для приглашения" />
+          </div>
+          <!-- <p class="ref-hero__caption ref-hero__caption--right">
+            ждём вас<br />рядом с нами
+          </p> -->
+        </div>
+        <div class="ref-hero__strap" aria-hidden="true">
+          <span class="ref-hero__strap-text">вы приглашены</span>
+          <span class="ref-hero__strap-text">вы приглашены</span>
+          <span class="ref-hero__strap-text">вы приглашены</span>
         </div>
       </div>
-    </header>
-    </div>
+    </section>
 
-    <main>
-      <section class="section section--date reveal" id="date" aria-labelledby="date-heading">
-        <h2 id="date-heading" class="visually-hidden">Календарь</h2>
+    <main class="ref-main">
+      <section class="ref-invite reveal section-ref" id="invite" aria-labelledby="invite-heading">
+        <h2 id="invite-heading" class="visually-hidden">Текст приглашения и дата</h2>
+        <p class="ref-invite__text">
+          Дорогие друзья и близкие, мы приглашаем вас разделить с нами наше свадебное
+          торжество, которое состоится <time datetime="2026-09-12" class=ref-hero__title-script>12.09.2026</time>
+        </p>
+
         <div
-          class="calendar"
+          class="ref-calendar"
           role="img"
-          aria-label="Сентябрь 2026, двенадцатое — день свадьбы"
+          aria-label="Сентябрь 2026, двенадцатое число — день свадьбы"
         >
-          <div class="calendar__head">
-            <span class="calendar__month">Сентябрь</span>
-            <span class="calendar__year">2026</span>
+          <div class="ref-calendar__head">
+            <span class="ref-calendar__month">сентябрь</span>
           </div>
-          <div class="calendar__dow" aria-hidden="true">
-            <span>Пн</span><span>Вт</span><span>Ср</span><span>Чт</span
-            ><span>Пт</span><span>Сб</span><span>Вс</span>
+          <div class="ref-calendar__dow" aria-hidden="true">
+            <span>пн</span><span>вт</span><span>ср</span><span>чт</span
+            ><span>пт</span><span>сб</span><span>вс</span>
           </div>
-          <div class="calendar__grid" aria-hidden="true">
-            <span class="calendar__offset-1" aria-hidden="true">&nbsp;</span
-            ><span>1</span><span>2</span><span>3</span><span>4</span
-            ><span>5</span><span>6</span
-            ><span>7</span><span>8</span><span>9</span><span>10</span
-            ><span>11</span
-            ><span
-              class="calendar__day--highlight"
-              aria-current="date"
-              >12</span
-            ><span>13</span><span>14</span><span>15</span><span>16</span
-            ><span>17</span><span>18</span><span>19</span><span>20</span
-            ><span>21</span><span>22</span><span>23</span><span>24</span
-            ><span>25</span><span>26</span><span>27</span><span>28</span
-            ><span>29</span><span>30</span>
+          <div class="ref-calendar__grid">
+            <span class="ref-calendar__offset" aria-hidden="true"></span>
+            <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span
+            ><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span
+            ><span class="ref-calendar__day-wrap">
+              <span class="ref-calendar__highlight-ring" aria-hidden="true"></span>
+              <span class="ref-calendar__day--wedding" aria-current="date">12</span>
+            </span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span
+            ><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span
+            ><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span
+            ><span>28</span><span>29</span><span>30</span>
+          </div>
+          <div class="ref-calendar__note">
+            <span class="ref-calendar__note-arrow" aria-hidden="true">↙</span>
+            <span class="ref-calendar__note-text">сохраните дату</span>
           </div>
         </div>
       </section>
 
-      <section class="section section--timing reveal" id="timing" aria-labelledby="timing-heading">
-        <h2 id="timing-heading" class="section__title">Программа торжества</h2>
-        <p class="section__text">
-          Наш праздник выстроен как путь: от встречи и официального «да» до
-          вечерней встречи с близкими. Собрали ключевые точки на одной
-          тропинке, чтобы вам было проще планировать день. Если планы
-          чуть сдвинутся, мы скажем заранее.
-        </p>
-        <div class="program-path" aria-label="Программа дня — план по дню">
-          <div class="program-path__track" aria-hidden="true">
+      <section class="ref-timeline reveal section-ref" id="timeline" aria-labelledby="timeline-heading">
+        <h2 id="timeline-heading" class="visually-hidden">Расписание дня</h2>
+        <div class="ref-timeline__layout">
+          <div class="ref-timeline__rail" aria-hidden="true">
             <svg
-              class="program-path__track-svg"
-              viewBox="0 0 80 220"
+              class="ref-timeline__svg"
+              viewBox="0 0 48 280"
               preserveAspectRatio="xMidYMin meet"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <defs>
-                <linearGradient id="pathGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" style="stop-color: #4a6b4e" />
-                  <stop offset="100%" style="stop-color: #3d5a40" />
-                </linearGradient>
-              </defs>
-              <g transform="translate(28 2) scale(1.4)">
-                <path
-                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  class="program-path__heart-ico"
-                />
-              </g>
               <path
-                class="program-path__route"
-                d="M 40 40 C 8 60 8 100 40 120 C 72 140 72 160 40 180 C 8 200 8 210 40 200"
+                class="ref-timeline__path"
+                d="M24 8 C 6 40 6 72 24 96 C 42 120 42 152 24 176 C 6 200 6 232 24 256"
                 fill="none"
-                stroke="url(#pathGrad)"
-                stroke-width="2.2"
+                stroke="currentColor"
+                stroke-width="2"
                 stroke-linecap="round"
-                stroke-linejoin="round"
               />
-              <g transform="translate(28 186) scale(1.4)">
+              <g transform="translate(12 132)">
                 <path
+                  fill="currentColor"
                   d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                  class="program-path__heart-ico"
                 />
               </g>
             </svg>
           </div>
-          <ol class="program-path__list">
-            <li class="program-path__item">
-              <div class="program-path__body">
-                <time class="program-path__time" datetime="2026-09-12T12:00"
-                  >12:00</time
-                >
-                <p class="program-path__title">Сбор у ЗАГСа</p>
-                <p class="program-path__note">
-                  Встречаемся у здания, дальше пойдём вместе — приходите за
-                  10–15 минут, чтобы никуда не бежать.
-                </p>
-              </div>
+          <ol class="ref-timeline__list">
+            <li class="ref-timeline__item ref-timeline__item--emphasis">
+              <span class="ref-timeline__time">12:00</span>
+              <span class="ref-timeline__label">Сбор гостей у ЗАГСа</span>
             </li>
-            <li class="program-path__item">
-              <div class="program-path__body">
-                <time class="program-path__time" datetime="2026-09-12T12:15"
-                  >12:15</time
-                >
-                <p class="program-path__title">Церемония</p>
-                <p class="program-path__note">
-                  Само торжество — коротко, по-настоящему, с теми, кого мы
-                  хотим рядом в этот день.
-                </p>
-              </div>
+            <li class="ref-timeline__item ref-timeline__item--emphasis">
+              <span class="ref-timeline__time">12:15</span>
+              <span class="ref-timeline__label">Церемония</span>
             </li>
-            <li class="program-path__item">
-              <div class="program-path__body">
-                <time class="program-path__time" datetime="2026-09-12T15:00"
-                  >15:00</time
-                >
-                <p class="program-path__title">Сбор у трансфера</p>
-                <p class="program-path__note">
-                  Переезд на площадку банкета: место встречи и маркер на
-                  карте — уточним ближе к сентябрю, следите за чатом.
-                </p>
-              </div>
+            <li class="ref-timeline__item ref-timeline__item--emphasis">
+              <span class="ref-timeline__time">15:00</span>
+              <span class="ref-timeline__label">Сбор гостей для трансфера к площадке</span>
             </li>
-            <li class="program-path__item">
-              <div class="program-path__body">
-                <time class="program-path__time" datetime="2026-09-12T17:00"
-                  >17:00</time
-                >
-                <p class="program-path__title">Банкет</p>
-                <p class="program-path__note">
-                  Ужин, тосты, танцы — вечер, за который мы вас крепко
-                  обнимаем. Уезжайте, когда вам удобно, мы будем с вами до
-                  последнего трека.
-                </p>
-              </div>
+            <li class="ref-timeline__item ref-timeline__item--emphasis">
+              <span class="ref-timeline__time">17:00</span>
+              <span class="ref-timeline__label">Банкет</span>
             </li>
           </ol>
         </div>
       </section>
 
-      <section class="section section--dress reveal" id="dress" aria-labelledby="dress-heading">
-        <h2 id="dress-heading" class="section__title">Дресс-код</h2>
-        <div class="dress-card">
-          <p>
-            Для нас будет очень важен ваш вид: мы просим вечерний или
-            коктейльный наряд в спокойных натуральных оттенках — оливковый,
-            пудровый, песочный, приглушённо-золотой, графит, молочно-белый.
-            Костюм или платье, в котором вам тепло и празднично, без строгого
-            дресс-кода «только пиджак». Кроссовки вместо пары вечерней обуви —
-            только если так вы чувствуете себя на танцполе. Главное — уют и вы.
-          </p>
-        </div>
-        <h2 class="visually-hidden" id="dress-photos">Фотографии к дресс-коду</h2>
-        <div class="dress__photos" aria-labelledby="dress-photos">
-          <div class="ph-wrap ph-wrap--dress">
-            <img class="ph-img" src="" alt="Иллюстрация к дресс-коду 1" />
+      <section class="ref-dress reveal section-ref" id="dress" aria-labelledby="dress-heading">
+        <div class="ref-dress__band">
+          <h2 id="dress-heading" class="ref-dress__title">Дресс-Код</h2>
+          <div class="ref-dress__card">
+            <p class="ref-dress__text">
+              Для нас будет очень важен ваш вид: мы просим вечерний или коктейльный наряд в
+              спокойных натуральных оттенках — оливковый, пудровый, песочный, приглушённое
+              золото, графит, молочно-белый. Костюм или платье, в котором вам комфортно и
+              празднично. Главное — уют и вы.
+            </p>
+            <div class="ref-dress__palette" aria-label="Цветовая гамма">
+              <span class="ref-dress__swatch" style="--swatch: #5c4033"></span>
+              <span class="ref-dress__swatch" style="--swatch: #c4a574"></span>
+              <span class="ref-dress__swatch" style="--swatch: #6b7349"></span>
+              <span class="ref-dress__swatch" style="--swatch: #8f9779"></span>
+              <span class="ref-dress__swatch" style="--swatch: #c5cbb8"></span>
+            </div>
           </div>
-          <div class="ph-wrap ph-wrap--dress">
-            <img class="ph-img" src="" alt="Иллюстрация к дресс-коду 2" />
+          <p class="ref-dress__refs-lead">
+            <span class="ref-dress__refs-arrow" aria-hidden="true">↘</span>
+            мы подобрали немного референсов для вашего удобства
+          </p>
+          <div class="ref-dress__refs-scroll">
+            <div class="ref-dress__refs-track">
+              <div class="ph-wrap ph-wrap--dress-ref">
+                <img class="ph-img" src="" alt="Референс образа 1" />
+              </div>
+              <div class="ph-wrap ph-wrap--dress-ref">
+                <img class="ph-img" src="" alt="Референс образа 2" />
+              </div>
+              <div class="ph-wrap ph-wrap--dress-ref">
+                <img class="ph-img" src="" alt="Референс образа 3" />
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      <section class="section section--location reveal" id="location" aria-labelledby="location-heading">
-        <h2 id="location-heading" class="section__title">Локация</h2>
-        <p class="section__text section__text--location">
-          Мы празднуем в Подмосковье: пространстве площадки «Ботаника» —
-          загород, свежий воздух и внимательный сервис. До площадки из Москвы
-          удобно на машине; парковка на территории, при необходимости
-          сориентируем по въезду. Приезжайте с запасом по времени в пиковые
-          часы, чтобы встретиться с нами спокойно, без суеты.
+      <section class="ref-wishes reveal section-ref" id="wishes" aria-labelledby="wishes-heading">
+        <h2 id="wishes-heading" class="ref-wishes__title">Пожелания</h2>
+        <p class="ref-wishes__text">
+          Будем признательны за альтернативу букетам в виде бутылочки вина или вашего
+          любимого напитка
         </p>
+        <div class="ref-wishes__visual">
+          <div class="ph-wrap ph-wrap--wine">
+            <img class="ph-img" src="" alt="Иллюстрация: напиток вместо цветов" />
+          </div>
+          <p class="ref-wishes__note">вместо цветов</p>
+        </div>
+      </section>
+
+      <section class="section section--location reveal section-ref" id="location" aria-labelledby="location-heading">
+        <h2 id="location-heading" class="section__title">Локация</h2>
+        <p class="section__text section__text--location"></p>
         <div class="location__photos">
           <div class="ph-wrap ph-wrap--location">
-            <img class="ph-img" src="" alt="Площадка — вид 1" />
+            <img class="ph-img" src="https://optim.tildacdn.com/tild3765-6163-4837-a462-623134666631/-/resize/800x1000/-/format/webp/20240924_0068_resize.jpg.webp" alt="Площадка — вид 1" />
           </div>
           <div class="ph-wrap ph-wrap--location">
-            <img class="ph-img" src="" alt="Площадка — вид 2" />
+            <img class="ph-img" src="https://optim.tildacdn.com/tild3734-3036-4639-a538-393933633435/-/resize/800x600/-/format/webp/1000249266.jpg.webp" alt="Площадка — вид 2" />
           </div>
         </div>
         <div class="location__info">
           <p class="location__address">
-            Московская область, Богородский городской округ, площадка «Ботаника»
+            Московская область, Богородский городской округ, House for wedding «Ботаника»
           </p>
-          <a
-            class="location__map-link"
-            href="https://yandex.ru/maps/-/CPGgFWyf"
-            >Открыть в Яндекс.Картах</a
-          >
+          <a class="location__map-link" href="https://yandex.ru/maps/-/CPGgFWyf">Открыть в Яндекс.Картах</a>
         </div>
       </section>
     </main>
