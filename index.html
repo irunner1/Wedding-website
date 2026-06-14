@@ -14,41 +14,33 @@
 </head>
 
 <body>
-  <section class="ref-hero reveal" id="hero" aria-labelledby="hero-heading">
-    <div class="ref-hero__panel">
-      <div class="ref-hero__deco" aria-hidden="true">
-        <img class="ref-hero__deco-img ph-img" src="media/Line 1.png" alt="" />
+  <section class="hero reveal" id="hero">
+    <div class="hero__panel">
+      <div class="hero__deco" aria-hidden="true">
+        <img class="hero__deco-img ph-img" src="media/Line 1.png" alt="" />
       </div>
-      <h1 id="hero-heading" class="visually-hidden">Приглашение на свадьбу</h1>
-      <p class="ref-hero__title">
-        <span class="ref-hero__title-serif">Наша Свадьба</span>
-        <span class="ref-hero__title-script">Даша & Артём</span>
+      <p class="hero__title">
+        <span class="hero__title-serif">Наша Свадьба</span>
+        <span class="hero__title-script">Даша & Артём</span>
       </p>
-      <div class="ref-hero__photo-row">
-        <!-- <p class="ref-hero__caption ref-hero__caption--left">
-            маленький шаг<br />большой день
-          </p> -->
-        <div class="ref-hero__photo ph-wrap ph-wrap--hero">
+      <div class="hero__photo-row">
+        <div class="hero__photo ph-wrap ph-wrap--hero">
           <img class="ph-img" src="media/IMG_3581.JPG" alt="Фото для приглашения" />
         </div>
-        <!-- <p class="ref-hero__caption ref-hero__caption--right">
-            ждём Вас<br />рядом с нами
-          </p> -->
       </div>
-      <div class="ref-hero__strap" aria-hidden="true">
-        <span class="ref-hero__strap-text">Вы приглашены</span>
-        <span class="ref-hero__strap-text">Вы приглашены</span>
-        <span class="ref-hero__strap-text">Вы приглашены</span>
+      <div class="hero__strap" aria-hidden="true">
+        <span class="hero__strap-text">Вы приглашены</span>
+        <span class="hero__strap-text">Вы приглашены</span>
+        <span class="hero__strap-text">Вы приглашены</span>
       </div>
     </div>
   </section>
 
-  <main class="ref-main">
-    <section class="ref-invite reveal section-ref" id="invite" aria-labelledby="invite-heading">
-      <h2 id="invite-heading" class="visually-hidden">Текст приглашения и дата</h2>
-      <p class="ref-invite__text">
+  <main class="page-main">
+    <section class="invite reveal section-block" id="invite">
+      <p class="invite__text">
         Дорогие друзья и близкие, мы приглашаем Вас разделить с нами наше свадебное
-        торжество, которое состоится <time datetime="2026-09-12" class="ref-hero__title-script">12.09.2026</time>
+        торжество, которое состоится <time datetime="2026-09-12" class="hero__title-script">12.09.2026</time>
       </p>
 
       <div class="calendar" role="img" aria-label="Сентябрь 2026, двенадцатое число — день свадьбы">
@@ -66,71 +58,69 @@
             <span class="calendar__day--wedding" aria-current="date">12</span>
           </span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>
         </div>
-        <!-- <div class="calendar__note">
-            <span class="calendar__note-arrow" aria-hidden="true">↙</span>
-            <span class="calendar__note-text">сохраните дату</span>
-          </div> -->
       </div>
     </section>
 
-    <section class="ref-timeline reveal section-ref" id="timeline" aria-labelledby="timeline-heading">
-      <h2 id="timeline-heading" class="visually-hidden">Расписание дня</h2>
-      <div class="ref-timeline__layout">
-        <div class="ref-timeline__rail" aria-hidden="true">
-          <img class="ref-timeline__deco-img ph-img" src="media/Line 2.png" alt="" />
+    <section class="timeline reveal section-block" id="timeline" aria-labelledby="timeline-heading">
+      <div class="timeline__frame">
+        <h2 id="timeline-heading" class="timeline__title">Расписание дня</h2>
+        <div class="timeline__layout">
+          <div class="timeline__rail" aria-hidden="true">
+            <img class="timeline__deco-img ph-img" src="media/Line 2.png" alt="" />
+          </div>
+          <ol class="timeline__list">
+            <li class="timeline__item timeline__item--emphasis timeline__item--top">
+              <span class="timeline__time">12:00</span>
+              <span class="timeline__label">Сбор гостей у ЗАГСа</span>
+            </li>
+            <li class="timeline__item timeline__item--emphasis timeline__item--left">
+              <span class="timeline__time">12:15</span>
+              <span class="timeline__label">Церемония</span>
+            </li>
+            <li class="timeline__item timeline__item--emphasis timeline__item--right">
+              <span class="timeline__time">15:00</span>
+              <span class="timeline__label">Сбор гостей для трансфера к площадке</span>
+            </li>
+            <li class="timeline__item timeline__item--emphasis timeline__item--bottom">
+              <span class="timeline__time">17:00</span>
+              <span class="timeline__label">Банкет</span>
+            </li>
+          </ol>
         </div>
-        <ol class="ref-timeline__list">
-          <li class="ref-timeline__item ref-timeline__item--emphasis">
-            <span class="ref-timeline__time">12:00</span>
-            <span class="ref-timeline__label">Сбор гостей у ЗАГСа</span>
-          </li>
-          <li class="ref-timeline__item ref-timeline__item--emphasis">
-            <span class="ref-timeline__time">12:15</span>
-            <span class="ref-timeline__label">Церемония</span>
-          </li>
-          <li class="ref-timeline__item ref-timeline__item--emphasis">
-            <span class="ref-timeline__time">15:00</span>
-            <span class="ref-timeline__label">Сбор гостей для трансфера к площадке</span>
-          </li>
-          <li class="ref-timeline__item ref-timeline__item--emphasis">
-            <span class="ref-timeline__time">17:00</span>
-            <span class="ref-timeline__label">Банкет</span>
-          </li>
-        </ol>
       </div>
     </section>
 
-    <section class="ref-dress reveal section-ref" id="dress" aria-labelledby="dress-heading">
-      <div class="ref-dress__band">
-        <h2 id="dress-heading" class="ref-dress__title">Дресс-Код</h2>
-        <div class="ref-dress__card">
-          <p class="ref-dress__text">
+    <section class="dress reveal section-block" id="dress" aria-labelledby="dress-heading">
+      <div class="dress__band">
+        <h2 id="dress-heading" class="dress__title">Дресс-Код</h2>
+        <div class="dress__card">
+          <p class="dress__text">
             Для нас будет очень важен ваш вид: мы просим вечерний или коктейльный наряд в
             спокойных натуральных оттенках — оливкоВый, пудроВый, песочный, приглушённое
             золото, графит, молочно-белый. Костюм или платье, в котором вам комфортно и
             празднично. Главное — уют и Вы.
           </p>
-          <div class="ref-dress__palette" aria-label="Цветовая гамма">
-            <span class="ref-dress__swatch" style="--swatch: #5c4033"></span>
-            <span class="ref-dress__swatch" style="--swatch: #c4a574"></span>
-            <span class="ref-dress__swatch" style="--swatch: #6b7349"></span>
-            <span class="ref-dress__swatch" style="--swatch: #8f9779"></span>
-            <span class="ref-dress__swatch" style="--swatch: #c5cbb8"></span>
+          <div class="dress__palette" aria-label="Цветовая гамма">
+            <span class="dress__swatch" style="--swatch: #5c4033"></span>
+            <span class="dress__swatch" style="--swatch: #c4a574"></span>
+            <span class="dress__swatch" style="--swatch: #6b7349"></span>
+            <span class="dress__swatch" style="--swatch: #8f9779"></span>
+            <span class="dress__swatch" style="--swatch: #c5cbb8"></span>
           </div>
         </div>
-        <p class="ref-dress__refs-lead">
-          <span class="ref-dress__refs-arrow" aria-hidden="true">↘</span>
+        <p class="dress__gallery-lead">
+          <span class="dress__gallery-arrow" aria-hidden="true">↘</span>
           мы подобрали немного референсов для вашего удобства
         </p>
-        <div class="ref-dress__refs-scroll">
-          <div class="ref-dress__refs-track">
-            <div class="ph-wrap ph-wrap--dress-ref">
+        <div class="dress__gallery-scroll">
+          <div class="dress__gallery-track">
+            <div class="ph-wrap ph-wrap--dress-gallery">
               <img class="ph-img" src="" alt="Референс образа 1" />
             </div>
-            <div class="ph-wrap ph-wrap--dress-ref">
+            <div class="ph-wrap ph-wrap--dress-gallery">
               <img class="ph-img" src="" alt="Референс образа 2" />
             </div>
-            <div class="ph-wrap ph-wrap--dress-ref">
+            <div class="ph-wrap ph-wrap--dress-gallery">
               <img class="ph-img" src="" alt="Референс образа 3" />
             </div>
           </div>
@@ -138,21 +128,21 @@
       </div>
     </section>
 
-    <section class="ref-wishes reveal section-ref" id="wishes" aria-labelledby="wishes-heading">
-      <h2 id="wishes-heading" class="ref-wishes__title">Пожелания</h2>
-      <p class="ref-wishes__text">
+    <section class="wishes reveal section-block" id="wishes" aria-labelledby="wishes-heading">
+      <h2 id="wishes-heading" class="wishes__title">Пожелания</h2>
+      <p class="wishes__text">
         Будем признательны за альтернативу букетам в виде бутылочки вина или вашего
         любимого напитка
       </p>
-      <div class="ref-wishes__visual">
+      <div class="wishes__visual">
         <div class="ph-wrap ph-wrap--wine">
           <img class="ph-img" src="" alt="Иллюстрация: напиток вместо цветов" />
         </div>
-        <p class="ref-wishes__note">вместо цветов</p>
+        <p class="wishes__note">вместо цветов</p>
       </div>
     </section>
 
-    <section class="section section--location reveal section-ref" id="location" aria-labelledby="location-heading">
+    <section class="section section--location reveal section-block" id="location" aria-labelledby="location-heading">
       <h2 id="location-heading" class="section__title">Локация</h2>
       <p class="section__text section__text--location"></p>
       <div class="location__photos">
