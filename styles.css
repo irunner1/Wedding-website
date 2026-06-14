@@ -387,7 +387,6 @@ img {
 .timeline__frame {
   max-width: 17rem;
   margin-inline: auto;
-  /* padding-top: 3.5rem; */
   padding-bottom: 3rem;
 }
 
@@ -720,6 +719,105 @@ img {
   outline-offset: 3px;
 }
 
+@media (max-width: 670px) {
+  .page-main {
+    overflow-x: clip;
+  }
+
+  .hero__strap-text {
+    white-space: normal;
+    text-align: center;
+  }
+
+  .calendar {
+    max-width: 100%;
+    width: min(17.8rem, 100%);
+  }
+
+  .timeline.section-block {
+    padding-inline: 0.25rem;
+  }
+
+  .timeline__frame {
+    width: min(17rem, calc(100% - 0.5rem));
+    padding-inline: clamp(1.5rem, 7vw, 2.25rem);
+    padding-bottom: 2.5rem;
+  }
+
+  .timeline__title {
+    font-size: clamp(2rem, 10vw, 2.35rem);
+    padding: 0 0.25em 0.85em;
+  }
+
+  .timeline__item--top {
+    top: -2.25em;
+    right: -4%;
+    max-width: 8.5rem;
+  }
+
+  .timeline__item--left {
+    top: 38%;
+    left: -6%;
+    max-width: 6.25rem;
+  }
+
+  .timeline__item--right {
+    top: 50%;
+    right: -10%;
+    max-width: 7.75rem;
+  }
+
+  .timeline__item--bottom {
+    bottom: -2.25em;
+    left: 46%;
+    max-width: 10rem;
+  }
+
+  .timeline__time {
+    font-size: 1.05rem;
+  }
+
+  .timeline__label {
+    font-size: 0.82rem;
+    line-height: 1.35;
+  }
+
+  .dress__band {
+    padding-top: 2rem;
+    padding-bottom: 2.25rem;
+  }
+
+  .dress__gallery-track {
+    padding-inline: 0.25rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .timeline__frame {
+    padding-inline: 1.15rem;
+  }
+
+  .timeline__item--top {
+    right: 0;
+    max-width: 7.75rem;
+  }
+
+  .timeline__item--left {
+    left: 0;
+    max-width: 5.5rem;
+  }
+
+  .timeline__item--right {
+    right: 0;
+    max-width: 6.75rem;
+  }
+
+  .timeline__item--bottom {
+    left: 50%;
+    max-width: 9rem;
+  }
+}
+
 @media (max-width: 540px) {
   .location__photos {
     grid-template-columns: 1fr;
@@ -730,18 +828,21 @@ img {
   }
 }
 
-html.js-ready .reveal:not(.reveal--visible) {
-  opacity: 0;
-  transform: translateY(1rem);
-}
-
 html.js-ready .reveal {
   transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+  -webkit-transition: opacity 0.65s var(--ease), -webkit-transform 0.65s var(--ease);
+}
+
+html.js-ready .reveal:not(.reveal--visible) {
+  opacity: 0;
+  transform: translate3d(0, 1rem, 0);
+  -webkit-transform: translate3d(0, 1rem, 0);
 }
 
 html.js-ready .reveal--visible {
   opacity: 1;
-  transform: none;
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -749,7 +850,8 @@ html.js-ready .reveal--visible {
   html.js-ready .reveal,
   html.js-ready .reveal:not(.reveal--visible) {
     opacity: 1 !important;
-    transform: none !important;
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
     transition: none;
   }
 }
