@@ -7,7 +7,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -16,28 +16,11 @@
     <section class="ref-hero reveal" id="hero" aria-labelledby="hero-heading">
       <div class="ref-hero__panel">
         <div class="ref-hero__deco" aria-hidden="true">
-          <svg
-            class="ref-hero__wave"
-            viewBox="0 0 200 20"
-            preserveAspectRatio="xMidYMid meet"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M0 10 Q 25 2 50 10 T 100 10 T 150 10 T 200 10"
-              fill="none"
-              stroke="currentColor"
-              stroke-width="1.8"
-              stroke-linecap="round"
-            />
-          </svg>
-          <span class="ref-hero__heart">
-            <svg viewBox="0 0 24 24" width="1em" height="1em" aria-hidden="true">
-              <path
-                fill="currentColor"
-                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-              />
-            </svg>
-          </span>
+          <img
+            class="ref-hero__deco-img ph-img"
+            src=""
+            alt=""
+          />
         </div>
         <h1 id="hero-heading" class="visually-hidden">Приглашение на свадьбу</h1>
         <p class="ref-hero__title">
@@ -52,13 +35,13 @@
             <img class="ph-img" src="media/IMG_3581.JPG" alt="Фото для приглашения" />
           </div>
           <!-- <p class="ref-hero__caption ref-hero__caption--right">
-            ждём вас<br />рядом с нами
+            ждём Вас<br />рядом с нами
           </p> -->
         </div>
         <div class="ref-hero__strap" aria-hidden="true">
-          <span class="ref-hero__strap-text">вы приглашены</span>
-          <span class="ref-hero__strap-text">вы приглашены</span>
-          <span class="ref-hero__strap-text">вы приглашены</span>
+          <span class="ref-hero__strap-text">Вы приглашены</span>
+          <span class="ref-hero__strap-text">Вы приглашены</span>
+          <span class="ref-hero__strap-text">Вы приглашены</span>
         </div>
       </div>
     </section>
@@ -67,8 +50,8 @@
       <section class="ref-invite reveal section-ref" id="invite" aria-labelledby="invite-heading">
         <h2 id="invite-heading" class="visually-hidden">Текст приглашения и дата</h2>
         <p class="ref-invite__text">
-          Дорогие друзья и близкие, мы приглашаем вас разделить с нами наше свадебное
-          торжество, которое состоится <time datetime="2026-09-12" class=ref-hero__title-script>12.09.2026</time>
+          Дорогие друзья и близкие, мы приглашаем Вас разделить с нами наше свадебное
+          торжество, которое состоится <time datetime="2026-09-12" class="ref-hero__title-script">12.09.2026</time>
         </p>
 
         <div
@@ -77,7 +60,7 @@
           aria-label="Сентябрь 2026, двенадцатое число — день свадьбы"
         >
           <div class="ref-calendar__head">
-            <span class="ref-calendar__month">сентябрь</span>
+            <span class="ref-calendar__month">Сентябрь</span>
           </div>
           <div class="ref-calendar__dow" aria-hidden="true">
             <span>пн</span><span>вт</span><span>ср</span><span>чт</span
@@ -95,10 +78,10 @@
             ><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span
             ><span>28</span><span>29</span><span>30</span>
           </div>
-          <div class="ref-calendar__note">
+          <!-- <div class="ref-calendar__note">
             <span class="ref-calendar__note-arrow" aria-hidden="true">↙</span>
             <span class="ref-calendar__note-text">сохраните дату</span>
-          </div>
+          </div> -->
         </div>
       </section>
 
@@ -106,27 +89,11 @@
         <h2 id="timeline-heading" class="visually-hidden">Расписание дня</h2>
         <div class="ref-timeline__layout">
           <div class="ref-timeline__rail" aria-hidden="true">
-            <svg
-              class="ref-timeline__svg"
-              viewBox="0 0 48 280"
-              preserveAspectRatio="xMidYMin meet"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                class="ref-timeline__path"
-                d="M24 8 C 6 40 6 72 24 96 C 42 120 42 152 24 176 C 6 200 6 232 24 256"
-                fill="none"
-                stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-              />
-              <g transform="translate(12 132)">
-                <path
-                  fill="currentColor"
-                  d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
-                />
-              </g>
-            </svg>
+            <img
+              class="ref-timeline__deco-img ph-img"
+              src=""
+              alt=""
+            />
           </div>
           <ol class="ref-timeline__list">
             <li class="ref-timeline__item ref-timeline__item--emphasis">
@@ -155,9 +122,9 @@
           <div class="ref-dress__card">
             <p class="ref-dress__text">
               Для нас будет очень важен ваш вид: мы просим вечерний или коктейльный наряд в
-              спокойных натуральных оттенках — оливковый, пудровый, песочный, приглушённое
+              спокойных натуральных оттенках — оливкоВый, пудроВый, песочный, приглушённое
               золото, графит, молочно-белый. Костюм или платье, в котором вам комфортно и
-              празднично. Главное — уют и вы.
+              празднично. Главное — уют и Вы.
             </p>
             <div class="ref-dress__palette" aria-label="Цветовая гамма">
               <span class="ref-dress__swatch" style="--swatch: #5c4033"></span>

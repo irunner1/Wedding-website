@@ -78,7 +78,6 @@ img {
 .ph-wrap {
   position: relative;
   overflow: hidden;
-  background: linear-gradient(145deg, #dce3d4 0%, #eef1ea 100%);
   border: 1px solid rgba(143, 151, 121, 0.35);
 }
 
@@ -86,11 +85,6 @@ img {
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(
-    ellipse 80% 60% at 50% 50%,
-    rgba(255, 255, 255, 0.35) 0%,
-    transparent 60%
-  );
   pointer-events: none;
 }
 
@@ -149,28 +143,22 @@ img {
 
 .ref-hero__deco {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.15rem;
+  justify-content: center;
   margin-bottom: 0.35rem;
-  color: var(--sage-dark);
 }
 
-.ref-hero__wave {
+.ref-hero__deco-img {
   display: block;
   width: min(11rem, 72vw);
-  height: 1.15rem;
+  height: auto;
+  min-height: 1.75rem;
+  object-fit: contain;
+  object-position: center;
 }
 
-.ref-hero__heart {
-  display: flex;
-  color: var(--sage);
-  font-size: 1rem;
-}
-
-.ref-hero__heart svg {
-  width: 1.1rem;
-  height: 1rem;
+.ref-hero__deco-img:not([src]),
+.ref-hero__deco-img[src=""] {
+  opacity: 0;
 }
 
 .ref-hero__title {
@@ -293,9 +281,9 @@ img {
 /* --- Calendar sticky note --- */
 .ref-calendar {
   position: relative;
-  max-width: 17.5rem;
+  max-width: 17.8rem;
   margin: 0 auto;
-  padding: 1.15rem 1rem 2.35rem;
+  padding: 0.25rem 1rem 1.5rem;
   background: var(--white-soft);
   border-radius: 4px;
   box-shadow: var(--shadow-note);
@@ -304,15 +292,15 @@ img {
 
 .ref-calendar__head {
   text-align: center;
-  margin-bottom: 0.65rem;
+  /* margin-bottom: 0.65rem; */
 }
 
 .ref-calendar__month {
-  font-family: var(--font-serif);
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: var(--text);
-  text-transform: lowercase;
+  font-family: var(--font-script);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--sage-deep);
+  letter-spacing: 0.02em;
 }
 
 .ref-calendar__dow,
@@ -324,11 +312,11 @@ img {
 }
 
 .ref-calendar__dow {
-  font-size: 0.62rem;
+  font-family: var(--font-script);
+  font-size: 0.95rem;
   font-weight: 600;
-  text-transform: lowercase;
-  letter-spacing: 0.03em;
-  color: var(--text-muted);
+  letter-spacing: 0.02em;
+  color: var(--sage-dark);
   margin-bottom: 0.35rem;
 }
 
@@ -413,16 +401,24 @@ img {
 .ref-timeline__rail {
   grid-column: 1;
   grid-row: 1;
-  color: var(--sage-dark);
   display: flex;
   justify-content: center;
+  align-items: stretch;
 }
 
-.ref-timeline__svg {
+.ref-timeline__deco-img {
+  display: block;
   width: 100%;
   height: 100%;
   min-height: 14rem;
   max-height: 17rem;
+  object-fit: contain;
+  object-position: center top;
+}
+
+.ref-timeline__deco-img:not([src]),
+.ref-timeline__deco-img[src=""] {
+  opacity: 0;
 }
 
 .ref-timeline__list {
@@ -455,7 +451,6 @@ img {
   font-family: var(--font-sans);
   font-size: 0.88rem;
   font-weight: 500;
-  text-transform: lowercase;
   letter-spacing: 0.02em;
   color: var(--text-muted);
 }
