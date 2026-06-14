@@ -42,12 +42,10 @@ body {
   line-height: 1.65;
   color: var(--text);
   background-color: var(--cream-deep);
-  background-image: linear-gradient(
-      180deg,
+  background-image: linear-gradient(180deg,
       rgba(249, 247, 242, 0.94) 0%,
       rgba(224, 228, 218, 0.92) 50%,
-      rgba(249, 247, 242, 0.95) 100%
-    ),
+      rgba(249, 247, 242, 0.95) 100%),
     url("media/page-bg.jpg");
   background-size: auto, cover;
   background-position: center, center;
@@ -279,7 +277,7 @@ img {
 }
 
 /* --- Calendar sticky note --- */
-.ref-calendar {
+.calendar {
   position: relative;
   max-width: 17.8rem;
   margin: 0 auto;
@@ -290,12 +288,12 @@ img {
   border: 1px solid rgba(143, 151, 121, 0.22);
 }
 
-.ref-calendar__head {
+.calendar__head {
   text-align: center;
   /* margin-bottom: 0.65rem; */
 }
 
-.ref-calendar__month {
+.calendar__month {
   font-family: var(--font-script);
   font-size: 2rem;
   font-weight: 700;
@@ -303,15 +301,15 @@ img {
   letter-spacing: 0.02em;
 }
 
-.ref-calendar__dow,
-.ref-calendar__grid {
+.calendar__dow,
+.calendar__grid {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 0.25rem 0.15rem;
   text-align: center;
 }
 
-.ref-calendar__dow {
+.calendar__dow {
   font-family: var(--font-script);
   font-size: 0.95rem;
   font-weight: 600;
@@ -320,17 +318,17 @@ img {
   margin-bottom: 0.35rem;
 }
 
-.ref-calendar__dow span {
+.calendar__dow span {
   padding: 0.15rem 0;
 }
 
-.ref-calendar__grid {
+.calendar__grid {
   font-size: 0.82rem;
   font-weight: 400;
   color: var(--text);
 }
 
-.ref-calendar__grid > span {
+.calendar__grid>span {
   padding: 0.35rem 0.1rem;
   border-radius: 6px;
   display: flex;
@@ -339,18 +337,18 @@ img {
   min-height: 1.85rem;
 }
 
-.ref-calendar__offset {
+.calendar__offset {
   visibility: hidden;
   pointer-events: none;
   user-select: none;
 }
 
-.ref-calendar__day-wrap {
+.calendar__day-wrap {
   position: relative;
   padding: 0;
 }
 
-.ref-calendar__highlight-ring {
+.calendar__highlight-ring {
   position: absolute;
   inset: 50% auto auto 50%;
   width: 2rem;
@@ -362,13 +360,13 @@ img {
   transform: translate(-50%, -50%) rotate(-8deg);
 }
 
-.ref-calendar__day--wedding {
+.calendar__day--wedding {
   position: relative;
   z-index: 1;
   font-weight: 600;
 }
 
-.ref-calendar__note {
+.calendar__note {
   position: absolute;
   right: 0.35rem;
   bottom: 0.45rem;
@@ -382,7 +380,7 @@ img {
   line-height: 1.1;
 }
 
-.ref-calendar__note-arrow {
+.calendar__note-arrow {
   font-size: 1.25rem;
   margin-top: 0.2rem;
   opacity: 0.85;
@@ -498,13 +496,11 @@ img {
   transform: translate(-50%, -42%);
   width: min(5rem, 35%);
   height: 1.35rem;
-  background: linear-gradient(
-    90deg,
-    rgba(255, 252, 247, 0.3) 0%,
-    rgba(230, 228, 220, 0.95) 35%,
-    rgba(230, 228, 220, 0.95) 65%,
-    rgba(255, 252, 247, 0.3) 100%
-  );
+  background: linear-gradient(90deg,
+      rgba(255, 252, 247, 0.3) 0%,
+      rgba(230, 228, 220, 0.95) 35%,
+      rgba(230, 228, 220, 0.95) 65%,
+      rgba(255, 252, 247, 0.3) 100%);
   border-radius: 2px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
   opacity: 0.95;
@@ -715,6 +711,7 @@ html.js-ready .reveal--visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   html.js-ready .reveal,
   html.js-ready .reveal:not(.reveal--visible) {
     opacity: 1 !important;
