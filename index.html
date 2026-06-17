@@ -69,21 +69,29 @@
             <img class="timeline__deco-img ph-img" src="media/Line 2.png" alt="" />
           </div>
           <ol class="timeline__list">
-            <li class="timeline__item timeline__item--emphasis timeline__item--top">
+            <li class="timeline__item timeline__item--emphasis">
               <span class="timeline__time">12:00</span>
               <span class="timeline__label">Сбор гостей у ЗАГСа</span>
             </li>
-            <li class="timeline__item timeline__item--emphasis timeline__item--left">
+            <li class="timeline__item timeline__item--emphasis">
               <span class="timeline__time">12:15</span>
               <span class="timeline__label">Церемония</span>
             </li>
-            <li class="timeline__item timeline__item--emphasis timeline__item--right">
-              <span class="timeline__time">15:00</span>
+            <li class="timeline__item timeline__item--emphasis">
+              <span class="timeline__time">13:30 - 14:00</span>
               <span class="timeline__label">Сбор гостей для трансфера к площадке</span>
             </li>
-            <li class="timeline__item timeline__item--emphasis timeline__item--bottom">
+            <li class="timeline__item timeline__item--emphasis">
+              <span class="timeline__time">15:00</span>
+              <span class="timeline__label">Сбор гостей на площадке</span>
+            </li>
+            <li class="timeline__item timeline__item--emphasis">
               <span class="timeline__time">17:00</span>
-              <span class="timeline__label">Банкет</span>
+              <span class="timeline__label">Начало банкета</span>
+            </li>
+            <li class="timeline__item timeline__item--emphasis">
+              <span class="timeline__time">22:00</span>
+              <span class="timeline__label">Окончание банкета</span>
             </li>
           </ol>
         </div>
@@ -142,6 +150,70 @@
       </div>
     </section>
 
+    <section class="guest-form reveal section-block" id="guest-form" aria-labelledby="guest-form-heading">
+      <h2 id="guest-form-heading" class="guest-form__title">Анкета гостя</h2>
+      <p class="guest-form__lead">
+        Пожалуйста, ответьте на несколько вопросов — это поможет нам лучше организовать праздник.
+      </p>
+      <form class="guest-form__form" id="guest-form-form" novalidate>
+        <fieldset class="guest-form__group">
+          <legend class="guest-form__question">
+            Воспользуетесь ли Вы трансфером или поедете на своем автомобиле?
+          </legend>
+          <div class="guest-form__options">
+            <label class="guest-form__option">
+              <input class="guest-form__input" type="radio" name="transfer" value="yes" required />
+              <span class="guest-form__option-text">Да</span>
+            </label>
+            <label class="guest-form__option">
+              <input class="guest-form__input" type="radio" name="transfer" value="no" />
+              <span class="guest-form__option-text">Нет</span>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset class="guest-form__group">
+          <legend class="guest-form__question">
+            Будете ли Вы пить алкоголь? Если да, то какой?
+          </legend>
+          <div class="guest-form__options guest-form__options--wrap">
+            <label class="guest-form__option">
+              <input class="guest-form__input" type="radio" name="alcohol" value="none" required />
+              <span class="guest-form__option-text">Нет</span>
+            </label>
+            <label class="guest-form__option">
+              <input class="guest-form__input" type="radio" name="alcohol" value="wine" />
+              <span class="guest-form__option-text">Вино</span>
+            </label>
+            <label class="guest-form__option">
+              <input class="guest-form__input" type="radio" name="alcohol" value="champagne" />
+              <span class="guest-form__option-text">Шампанское</span>
+            </label>
+            <label class="guest-form__option">
+              <input class="guest-form__input" type="radio" name="alcohol" value="beer" />
+              <span class="guest-form__option-text">Пиво</span>
+            </label>
+            <label class="guest-form__option">
+              <input class="guest-form__input" type="radio" name="alcohol" value="whiskey" />
+              <span class="guest-form__option-text">Виски</span>
+            </label>
+            <label class="guest-form__option">
+              <input class="guest-form__input" type="radio" name="alcohol" value="other" />
+              <span class="guest-form__option-text">Другое</span>
+            </label>
+          </div>
+          <label class="guest-form__other" id="guest-form-alcohol-other" hidden>
+            <span class="guest-form__other-label">Уточните напиток</span>
+            <input class="guest-form__text" type="text" name="alcohol-other" maxlength="80"
+              placeholder="Например, джин" />
+          </label>
+        </fieldset>
+
+        <button class="guest-form__submit" type="submit">Отправить</button>
+        <p class="guest-form__status" id="guest-form-status" role="status" aria-live="polite" hidden></p>
+      </form>
+    </section>
+
     <section class="section section--location reveal section-block" id="location" aria-labelledby="location-heading">
       <h2 id="location-heading" class="section__title">Локация</h2>
       <p class="section__text section__text--location"></p>
@@ -166,6 +238,7 @@
     </section>
   </main>
 
+  <script src="google-forms-config.js"></script>
   <script src="main.js" defer></script>
 </body>
 
