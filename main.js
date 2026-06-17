@@ -124,6 +124,7 @@
   var submitButton = form.querySelector(".guest-form__submit");
   var alcoholOtherWrap = document.getElementById("guest-form-alcohol-other");
   var alcoholOtherInput = form.querySelector('input[name="alcohol-other"]');
+  var allergiesInput = form.querySelector('input[name="allergies"]');
   var status = document.getElementById("guest-form-status");
 
   function setStatus(message, isError) {
@@ -148,9 +149,20 @@
     );
   }
 
+  function getCheckedAlcohol() {
+    return Array.prototype.slice.call(
+      form.querySelectorAll('input[name="alcohol"]:checked')
+    );
+  }
+
+  function isAlcoholOtherChecked() {
+    return getCheckedAlcohol().some(function (input) {
+      return input.value === "other";
+    });
+  }
+
   function toggleAlcoholOther() {
-    var selected = form.querySelector('input[name="alcohol"]:checked');
-    var showOther = selected && selected.value === "other";
+    var showOther = isAlcoholOtherChecked();
 
     if (alcoholOtherWrap) {
       alcoholOtherWrap.hidden = !showOther;
@@ -164,6 +176,25 @@
     }
   }
 
+  function syncAlcoholChoices(changedInput) {
+    if (!changedInput || changedInput.name !== "alcohol") {
+      return;
+    }
+
+    var noneInput = form.querySelector('input[name="alcohol"][value="none"]');
+    var alcoholInputs = form.querySelectorAll('input[name="alcohol"]');
+
+    if (changedInput.value === "none" && changedInput.checked) {
+      alcoholInputs.forEach(function (input) {
+        if (input.value !== "none") {
+          input.checked = false;
+        }
+      });
+    } else if (changedInput.checked && changedInput.value !== "none" && noneInput) {
+      noneInput.checked = false;
+    }
+  }
+
   function setSubmitting(isSubmitting) {
     if (!submitButton) {
       return;
@@ -173,16 +204,27 @@
     submitButton.textContent = isSubmitting ? "Отправляем..." : "Отправить";
   }
 
-  function buildPayload(transferValue, alcoholValue, alcoholOtherValue) {
+  function buildPayload(transferValue, alcoholValues, alcoholOtherValue, allergiesValue) {
     var body = new URLSearchParams();
     var transferLabel = config.labels.transfer[transferValue];
-    var alcoholLabel = config.labels.alcohol[alcoholValue];
+    var otherPrefix = config.labels.alcoholOtherPrefix || "Другое: ";
 
     body.append(config.fields.transfer, transferLabel);
-    body.append(config.fields.alcohol, alcoholLabel);
 
-    if (config.fields.alcoholOther && alcoholOtherValue) {
-      body.append(config.fields.alcoholOther, alcoholOtherValue);
+    alcoholValues.forEach(function (value) {
+      if (value === "other") {
+        return;
+      }
+
+      body.append(config.fields.alcohol, config.labels.alcohol[value]);
+    });
+
+    if (alcoholOtherValue) {
+      body.append(config.fields.alcohol, otherPrefix + alcoholOtherValue);
+    }
+
+    if (config.fields.allergies && allergiesValue) {
+      body.append(config.fields.allergies, allergiesValue);
     }
 
     return body;
@@ -190,6 +232,7 @@
 
   form.addEventListener("change", function (event) {
     if (event.target && event.target.name === "alcohol") {
+      syncAlcoholChoices(event.target);
       toggleAlcoholOther();
       setStatus("", false);
     }
@@ -213,10 +256,24 @@
     }
 
     var transfer = form.querySelector('input[name="transfer"]:checked');
-    var alcohol = form.querySelector('input[name="alcohol"]:checked');
+    var alcohol = getCheckedAlcohol();
+    var alcoholValues = alcohol.map(function (input) {
+      return input.value;
+    });
     var alcoholOtherText = alcoholOtherInput ? alcoholOtherInput.value.trim() : "";
+    var allergiesText = allergiesInput ? allergiesInput.value.trim() : "";
 
-    if (alcohol && alcohol.value === "other" && !alcoholOtherText) {
+    if (!transfer) {
+      setStatus("Пожалуйста, выберите вариант трансфера.", true);
+      return;
+    }
+
+    if (alcohol.length === 0) {
+      setStatus("Пожалуйста, выберите хотя бы один вариант алкоголя.", true);
+      return;
+    }
+
+    if (isAlcoholOtherChecked() && !alcoholOtherText) {
       setStatus("Пожалуйста, уточните напиток.", true);
       alcoholOtherInput.focus();
       return;
@@ -230,7 +287,12 @@
       headers: {
         "Content-Type": "application/x-www-form-urlencoded",
       },
-      body: buildPayload(transfer.value, alcohol.value, alcoholOtherText).toString(),
+      body: buildPayload(
+        transfer.value,
+        alcoholValues,
+        alcoholOtherText,
+        allergiesText
+      ).toString(),
     })
       .then(function () {
         setStatus("Спасибо! Ваши ответы отправлены.", false);

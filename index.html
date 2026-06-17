@@ -158,54 +158,70 @@
       <form class="guest-form__form" id="guest-form-form" novalidate>
         <fieldset class="guest-form__group">
           <legend class="guest-form__question">
-            Воспользуетесь ли Вы трансфером или поедете на своем автомобиле?
+            Воспользуетесь ли Вы трансфером или доберетесь сами (личный автомобиль, такси)?
+            <span class="guest-form__required" aria-hidden="true">*</span>
           </legend>
           <div class="guest-form__options">
             <label class="guest-form__option">
-              <input class="guest-form__input" type="radio" name="transfer" value="yes" required />
-              <span class="guest-form__option-text">Да</span>
+              <input class="guest-form__input" type="radio" name="transfer" value="transfer" required />
+              <span class="guest-form__option-text">Трансфер</span>
             </label>
             <label class="guest-form__option">
-              <input class="guest-form__input" type="radio" name="transfer" value="no" />
-              <span class="guest-form__option-text">Нет</span>
+              <input class="guest-form__input" type="radio" name="transfer" value="self" />
+              <span class="guest-form__option-text">Доберусь самостоятельно</span>
             </label>
           </div>
         </fieldset>
 
         <fieldset class="guest-form__group">
           <legend class="guest-form__question">
-            Будете ли Вы пить алкоголь? Если да, то какой?
+            Какой алкоголь будете пить?
+            <span class="guest-form__required" aria-hidden="true">*</span>
           </legend>
+          <p class="guest-form__hint">Можно выбрать несколько вариантов</p>
           <div class="guest-form__options guest-form__options--wrap">
             <label class="guest-form__option">
-              <input class="guest-form__input" type="radio" name="alcohol" value="none" required />
-              <span class="guest-form__option-text">Нет</span>
-            </label>
-            <label class="guest-form__option">
-              <input class="guest-form__input" type="radio" name="alcohol" value="wine" />
-              <span class="guest-form__option-text">Вино</span>
-            </label>
-            <label class="guest-form__option">
-              <input class="guest-form__input" type="radio" name="alcohol" value="champagne" />
-              <span class="guest-form__option-text">Шампанское</span>
-            </label>
-            <label class="guest-form__option">
-              <input class="guest-form__input" type="radio" name="alcohol" value="beer" />
+              <input class="guest-form__input" type="checkbox" name="alcohol" value="beer" />
               <span class="guest-form__option-text">Пиво</span>
             </label>
             <label class="guest-form__option">
-              <input class="guest-form__input" type="radio" name="alcohol" value="whiskey" />
+              <input class="guest-form__input" type="checkbox" name="alcohol" value="wine" />
+              <span class="guest-form__option-text">Вино</span>
+            </label>
+            <label class="guest-form__option">
+              <input class="guest-form__input" type="checkbox" name="alcohol" value="vodka" />
+              <span class="guest-form__option-text">Водка</span>
+            </label>
+            <label class="guest-form__option">
+              <input class="guest-form__input" type="checkbox" name="alcohol" value="gin" />
+              <span class="guest-form__option-text">Джин</span>
+            </label>
+            <label class="guest-form__option">
+              <input class="guest-form__input" type="checkbox" name="alcohol" value="whiskey" />
               <span class="guest-form__option-text">Виски</span>
             </label>
             <label class="guest-form__option">
-              <input class="guest-form__input" type="radio" name="alcohol" value="other" />
+              <input class="guest-form__input" type="checkbox" name="alcohol" value="none" />
+              <span class="guest-form__option-text">Не пью</span>
+            </label>
+            <label class="guest-form__option">
+              <input class="guest-form__input" type="checkbox" name="alcohol" value="other" />
               <span class="guest-form__option-text">Другое</span>
             </label>
           </div>
           <label class="guest-form__other" id="guest-form-alcohol-other" hidden>
             <span class="guest-form__other-label">Уточните напиток</span>
             <input class="guest-form__text" type="text" name="alcohol-other" maxlength="80"
-              placeholder="Например, джин" />
+              placeholder="Например, ром" />
+          </label>
+        </fieldset>
+
+        <fieldset class="guest-form__group">
+          <legend class="guest-form__question">Есть ли у вас аллергии?</legend>
+          <label class="guest-form__field">
+            <span class="visually-hidden">Аллергии</span>
+            <input class="guest-form__text" type="text" name="allergies" maxlength="200"
+              placeholder="Укажите аллергии или оставьте поле пустым" />
           </label>
         </fieldset>
 
