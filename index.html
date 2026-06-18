@@ -11,6 +11,12 @@
     href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>
+    document.documentElement.classList.toggle(
+      "guest-special",
+      new URLSearchParams(window.location.search).get("type") === "special_guest"
+    );
+  </script>
 </head>
 
 <body>
@@ -68,12 +74,12 @@
           <div class="timeline__rail" aria-hidden="true">
             <img class="timeline__deco-img ph-img" src="media/Line 2.png" alt="" />
           </div>
-          <ol class="timeline__list">
-            <li class="timeline__item timeline__item--emphasis">
+          <ol class="timeline__list" id="timeline-list">
+            <li class="timeline__item timeline__item--emphasis" data-special-only>
               <span class="timeline__time">12:00</span>
               <span class="timeline__label">Сбор гостей у ЗАГСа</span>
             </li>
-            <li class="timeline__item timeline__item--emphasis">
+            <li class="timeline__item timeline__item--emphasis" data-special-only>
               <span class="timeline__time">12:15</span>
               <span class="timeline__label">Церемония</span>
             </li>
@@ -94,6 +100,30 @@
               <span class="timeline__label">Окончание банкета</span>
             </li>
           </ol>
+          <script>
+            (function () {
+              var list = document.getElementById("timeline-list");
+              var timeline = document.getElementById("timeline");
+              if (!list) return;
+
+              var isSpecial = document.documentElement.classList.contains("guest-special");
+              var alignments = isSpecial
+                ? ["top", "left", "right", "left", "right", "bottom"]
+                : ["top", "left", "right", "bottom"];
+
+              if (!isSpecial) {
+                list.querySelectorAll("[data-special-only]").forEach(function (item) {
+                  item.remove();
+                });
+              } else if (timeline) {
+                timeline.classList.add("timeline--special-guest");
+              }
+
+              list.querySelectorAll(".timeline__item").forEach(function (item, index) {
+                item.classList.add("timeline__item--align-" + (alignments[index] || "left"));
+              });
+            })();
+          </script>
         </div>
       </div>
     </section>
