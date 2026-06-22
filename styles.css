@@ -169,6 +169,7 @@ img {
   font-weight: 600;
   color: var(--sage-dark);
   line-height: 1.05;
+  margin-top: 1.5rem;
 }
 
 .hero__title-serif {
@@ -188,7 +189,7 @@ img {
   justify-content: center;
   gap: 0.35rem 0.5rem;
   flex-wrap: wrap;
-  margin-bottom: 0.85rem;
+  /* width: 90%; */
 }
 
 .hero__caption {
@@ -751,12 +752,12 @@ html:not(.guest-special) .timeline__item[data-special-only] {
   transition: color 0.2s var(--ease), background-color 0.2s var(--ease), border-color 0.2s var(--ease);
 }
 
-.guest-form__input:focus-visible + .guest-form__option-text {
+.guest-form__input:focus-visible+.guest-form__option-text {
   outline: 2px solid var(--sage-dark);
   outline-offset: 2px;
 }
 
-.guest-form__input:checked + .guest-form__option-text {
+.guest-form__input:checked+.guest-form__option-text {
   color: var(--white-soft);
   background: var(--sage-dark);
   border-color: var(--sage-dark);
