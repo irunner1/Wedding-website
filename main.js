@@ -145,7 +145,9 @@
       config.fields.transfer &&
       config.fields.transfer.indexOf("entry.") === 0 &&
       config.fields.alcohol &&
-      config.fields.alcohol.indexOf("entry.") === 0
+      config.fields.alcohol.indexOf("entry.") === 0 &&
+      config.fields.transferSentinel &&
+      config.fields.alcoholSentinel
     );
   }
 
@@ -207,9 +209,12 @@
   function buildPayload(transferValue, alcoholValues, alcoholOtherValue, allergiesValue) {
     var body = new URLSearchParams();
     var transferLabel = config.labels.transfer[transferValue];
-    var otherPrefix = config.labels.alcoholOtherPrefix || "Другое: ";
+    var otherValue = config.labels.alcoholOtherValue || "__other_option__";
 
+    body.append(config.fields.transferSentinel, "");
     body.append(config.fields.transfer, transferLabel);
+
+    body.append(config.fields.alcoholSentinel, "");
 
     alcoholValues.forEach(function (value) {
       if (value === "other") {
@@ -220,12 +225,16 @@
     });
 
     if (alcoholOtherValue) {
-      body.append(config.fields.alcohol, otherPrefix + alcoholOtherValue);
+      body.append(config.fields.alcohol, otherValue);
+      body.append(config.fields.alcoholOtherResponse, alcoholOtherValue);
     }
 
     if (config.fields.allergies && allergiesValue) {
       body.append(config.fields.allergies, allergiesValue);
     }
+
+    body.append("fvv", "1");
+    body.append("pageHistory", "0");
 
     return body;
   }
