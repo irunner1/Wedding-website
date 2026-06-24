@@ -14,6 +14,8 @@
   --font-serif: "Playfair Display", Georgia, serif;
   --font-sans: "Montserrat", system-ui, sans-serif;
   --font-script: "Caveat", cursive;
+  --font-timeline-serif: "Libre Baskerville", Georgia, serif;
+  --font-timeline-sans: "Jost", var(--font-sans);
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --main-pad-x: clamp(1rem, 4vw, 1.35rem);
 }
@@ -383,79 +385,57 @@ img {
 
 .timeline.section-block {
   overflow: visible;
+  padding: 2.75rem 0;
 }
 
 .timeline__frame {
-  max-width: 22rem;
+  max-width: 24rem;
   margin-inline: auto;
-  padding-top: 2.5rem;
-  padding-bottom: 3.5rem;
 }
 
 .timeline__title {
-  margin: 0 0 1.15rem;
+  margin: 0 0 2.25rem;
   font-family: var(--font-script);
   font-size: clamp(2.35rem, 8vw, 2.85rem);
   font-weight: 600;
   color: var(--sage-dark);
   text-align: center;
   line-height: 1;
-  position: relative;
-  padding: 0 1em 1em 1em;
 }
 
 .timeline__layout {
-  --timeline-item-width: 42%;
-  --timeline-list-pad-y: 0.65rem;
+  --timeline-line: var(--sage-dark);
+  --timeline-gap: 2rem;
   position: relative;
   width: 100%;
-  aspect-ratio: 147 / 285;
-  min-height: 25rem;
 }
 
-.timeline:not(.timeline--special-guest) .timeline__layout {
-  aspect-ratio: 147 / 210;
-  min-height: 18.5rem;
-}
-
-html.guest-special .timeline__layout {
-  aspect-ratio: 147 / 285;
-  min-height: 25rem;
-}
-
-.timeline__rail {
+.timeline__layout::before {
+  content: "";
   position: absolute;
-  inset: 0;
-  z-index: 2;
-  display: flex;
-  justify-content: center;
-  align-items: stretch;
-  pointer-events: none;
-}
-
-.timeline__deco-img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  object-position: center;
-}
-
-.timeline__deco-img:not([src]),
-.timeline__deco-img[src=""] {
-  opacity: 0;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(112, 122, 94, 0.38) 6%,
+    rgba(112, 122, 94, 0.38) 94%,
+    transparent
+  );
 }
 
 .timeline__list {
-  position: absolute;
-  inset: 0;
+  position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   list-style: none;
   margin: 0;
-  padding: var(--timeline-list-pad-y) 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--timeline-gap);
 }
 
 html:not(.guest-special) .timeline__item[data-special-only] {
@@ -463,58 +443,71 @@ html:not(.guest-special) .timeline__item[data-special-only] {
 }
 
 .timeline__item {
-  position: relative;
-  width: var(--timeline-item-width);
-  max-width: 10rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  column-gap: 1rem;
   margin: 0;
+  padding: 0.25rem 0;
 }
 
-.timeline__item--align-top {
-  align-self: center;
-  width: auto;
-  max-width: 11rem;
-  text-align: center;
-  margin-top: -2.35em;
+.timeline__content {
+  max-width: 10.75rem;
 }
 
-.timeline__item--align-bottom {
-  align-self: center;
-  width: auto;
-  max-width: 11rem;
-  text-align: center;
-  margin-bottom: -2.35em;
-}
-
-.timeline__item--align-left {
-  align-self: flex-start;
-  text-align: left;
-}
-
-.timeline__item--align-right {
-  align-self: flex-end;
+.timeline__item--left .timeline__content {
+  grid-column: 1;
+  justify-self: end;
   text-align: right;
+  padding-right: 0.15rem;
+}
+
+.timeline__item--right .timeline__content {
+  grid-column: 3;
+  justify-self: start;
+  text-align: left;
+  padding-left: 0.15rem;
+}
+
+.timeline__dot {
+  grid-column: 2;
+  grid-row: 1;
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  background: var(--timeline-line);
+  opacity: 0.55;
+  box-shadow: 0 0 0 2px var(--cream-deep);
+  flex-shrink: 0;
 }
 
 .timeline__time {
   display: block;
-  font-family: var(--font-serif);
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-family: var(--font-timeline-serif);
+  font-size: clamp(1.15rem, 3.5vw, 1.35rem);
+  font-weight: 500;
+  line-height: 1.15;
+  letter-spacing: 0.02em;
   color: var(--text);
-  margin-bottom: 0.15rem;
+  margin-bottom: 0.3rem;
 }
 
 .timeline__label {
-  font-family: var(--font-sans);
-  font-size: 0.88rem;
-  font-weight: 400;
-  letter-spacing: 0.02em;
+  display: block;
+  font-family: var(--font-timeline-sans);
+  font-size: 0.8rem;
+  font-weight: 300;
+  letter-spacing: 0.01em;
+  line-height: 1.5;
   color: var(--text-muted);
 }
 
-.timeline__item--emphasis .timeline__label {
-  color: var(--text);
-  font-weight: 400;
+.timeline--items-6 {
+  --timeline-gap: 1.65rem;
+}
+
+.timeline--items-4 {
+  --timeline-gap: 2rem;
 }
 
 .dress {
@@ -936,43 +929,39 @@ html:not(.guest-special) .timeline__item[data-special-only] {
   }
 
   .timeline.section-block {
+    padding: 2.25rem 0;
     padding-inline: 0.25rem;
   }
 
   .timeline__frame {
-    width: min(22rem, calc(100% - 0.5rem));
-    padding-inline: clamp(1.25rem, 6vw, 2rem);
-    padding-top: 2rem;
-    padding-bottom: 3rem;
+    width: min(24rem, calc(100% - 0.5rem));
+    padding-inline: clamp(0.75rem, 4vw, 1.25rem);
   }
 
   .timeline__title {
     font-size: clamp(2rem, 10vw, 2.35rem);
-    padding: 0 0.25em 0.85em;
+    margin-bottom: 1.85rem;
   }
 
-  .timeline__layout {
-    --timeline-item-width: 44%;
-    --timeline-list-pad-y: 0.5rem;
-    min-height: 22rem;
+  .timeline--items-6 {
+    --timeline-gap: 1.45rem;
   }
 
-  .timeline__item {
-    max-width: 8.5rem;
+  .timeline--items-4 {
+    --timeline-gap: 1.75rem;
   }
 
-  .timeline__item:first-child,
-  .timeline__item:last-child {
-    max-width: 10rem;
+  .timeline__content {
+    max-width: 9.5rem;
   }
 
   .timeline__time {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
+    font-weight: 500;
   }
 
   .timeline__label {
-    font-size: 0.82rem;
-    line-height: 1.35;
+    font-size: 0.76rem;
   }
 
   .dress__band {
@@ -987,22 +976,15 @@ html:not(.guest-special) .timeline__item[data-special-only] {
 
 @media (max-width: 400px) {
   .timeline__frame {
-    padding-inline: 1.15rem;
+    padding-inline: 0.5rem;
   }
 
-  .timeline__layout {
-    --timeline-item-width: 46%;
-    --timeline-list-pad-y: 0.4rem;
-    min-height: 20rem;
+  .timeline__content {
+    max-width: 8.25rem;
   }
 
   .timeline__item {
-    max-width: 7.75rem;
-  }
-
-  .timeline__item:first-child,
-  .timeline__item:last-child {
-    max-width: 9rem;
+    column-gap: 0.65rem;
   }
 }
 

@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link
-    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Jost:wght@300;400;500&family=Libre+Baskerville:wght@400;500&family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap"
     rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script>
@@ -23,7 +23,7 @@
   <section class="hero reveal" id="hero">
     <div class="hero__panel">
       <div class="hero__deco" aria-hidden="true">
-        <img class="hero__deco-img ph-img" src="media/Line 1.png" alt="" />
+        <img class="hero__deco-img ph-img" src="media/line_top.png" alt="" />
       </div>
       <p class="hero__title">
         <span class="hero__title-serif">Наконец-то,</span>
@@ -59,7 +59,7 @@
           <span class="calendar__offset" aria-hidden="true"></span>
           <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span><span>6</span><span>7</span><span>8</span><span>9</span><span>10</span><span>11</span><span
             class="calendar__day-wrap">
-            <img class="calendar__highlight-ring ph-img" src="media/Line 3.png" alt="" aria-hidden="true" />
+            <img class="calendar__highlight-ring ph-img" src="media/line_circle.png" alt="" aria-hidden="true" />
             <span class="calendar__day--wedding" aria-current="date">12</span>
           </span><span>13</span><span>14</span><span>15</span><span>16</span><span>17</span><span>18</span><span>19</span><span>20</span><span>21</span><span>22</span><span>23</span><span>24</span><span>25</span><span>26</span><span>27</span><span>28</span><span>29</span><span>30</span>
         </div>
@@ -70,33 +70,49 @@
       <div class="timeline__frame">
         <h2 id="timeline-heading" class="timeline__title">Расписание дня</h2>
         <div class="timeline__layout">
-          <div class="timeline__rail" aria-hidden="true">
-            <img class="timeline__deco-img ph-img" src="media/Line 2.png" alt="" />
-          </div>
           <ol class="timeline__list" id="timeline-list">
-            <li class="timeline__item timeline__item--emphasis" data-special-only>
-              <span class="timeline__time">12:00</span>
-              <span class="timeline__label">Сбор гостей у ЗАГСа</span>
+            <li class="timeline__item" data-special-only>
+              <div class="timeline__content">
+                <span class="timeline__time">12:00</span>
+                <span class="timeline__label">Сбор гостей у ЗАГСа</span>
+              </div>
+              <span class="timeline__dot" aria-hidden="true"></span>
             </li>
-            <li class="timeline__item timeline__item--emphasis" data-special-only>
-              <span class="timeline__time">12:15</span>
-              <span class="timeline__label">Церемония</span>
+            <li class="timeline__item" data-special-only>
+              <div class="timeline__content">
+                <span class="timeline__time">12:15</span>
+                <span class="timeline__label">Церемония</span>
+              </div>
+              <span class="timeline__dot" aria-hidden="true"></span>
             </li>
-            <li class="timeline__item timeline__item--emphasis">
-              <span class="timeline__time">13:30 - 14:00</span>
-              <span class="timeline__label">Сбор гостей для трансфера к площадке</span>
+            <li class="timeline__item">
+              <div class="timeline__content">
+                <span class="timeline__time">13:30 - 14:00</span>
+                <span class="timeline__label">Сбор гостей для трансфера к площадке</span>
+                <a class="location__map-link timeline__label" href="https://yandex.ru/maps/-/CPGgFWyf">Адрес</a>
+              </div>
+              <span class="timeline__dot" aria-hidden="true"></span>
             </li>
-            <li class="timeline__item timeline__item--emphasis">
-              <span class="timeline__time">15:00</span>
-              <span class="timeline__label">Сбор гостей на площадке</span>
+            <li class="timeline__item">
+              <div class="timeline__content">
+                <span class="timeline__time">15:00</span>
+                <span class="timeline__label">Сбор гостей на площадке</span>
+              </div>
+              <span class="timeline__dot" aria-hidden="true"></span>
             </li>
-            <li class="timeline__item timeline__item--emphasis">
-              <span class="timeline__time">17:00</span>
-              <span class="timeline__label">Начало банкета</span>
+            <li class="timeline__item">
+              <div class="timeline__content">
+                <span class="timeline__time">17:00</span>
+                <span class="timeline__label">Начало банкета</span>
+              </div>
+              <span class="timeline__dot" aria-hidden="true"></span>
             </li>
-            <li class="timeline__item timeline__item--emphasis">
-              <span class="timeline__time">22:00</span>
-              <span class="timeline__label">Окончание банкета</span>
+            <li class="timeline__item">
+              <div class="timeline__content">
+                <span class="timeline__time">22:00</span>
+                <span class="timeline__label">Окончание банкета</span>
+              </div>
+              <span class="timeline__dot" aria-hidden="true"></span>
             </li>
           </ol>
           <script>
@@ -106,21 +122,20 @@
               if (!list) return;
 
               var isSpecial = document.documentElement.classList.contains("guest-special");
-              var alignments = isSpecial
-                ? ["top", "left", "right", "left", "right", "bottom"]
-                : ["top", "left", "right", "bottom"];
 
               if (!isSpecial) {
                 list.querySelectorAll("[data-special-only]").forEach(function (item) {
                   item.remove();
                 });
-              } else if (timeline) {
-                timeline.classList.add("timeline--special-guest");
               }
 
               list.querySelectorAll(".timeline__item").forEach(function (item, index) {
-                item.classList.add("timeline__item--align-" + (alignments[index] || "left"));
+                item.classList.add(index % 2 === 0 ? "timeline__item--left" : "timeline__item--right");
               });
+
+              if (timeline) {
+                timeline.classList.add(isSpecial ? "timeline--items-6" : "timeline--items-4");
+              }
             })();
           </script>
         </div>
@@ -168,12 +183,15 @@
     <section class="wishes reveal section-block" id="wishes" aria-labelledby="wishes-heading">
       <h2 id="wishes-heading" class="wishes__title">Пожелания</h2>
       <p class="wishes__text">
-        Будем признательны за альтернативу букетам в виде бутылочки вина или вашего
-        любимого напитка
+        Будем признательны за альтернативу букетам в виде бутылочки вина, шампанского или набора лего
       </p>
       <div class="wishes__visual">
         <div class="ph-wrap ph-wrap--wine">
-          <img class="ph-img" src="media/wine1.jpg" alt="Иллюстрация: напиток вместо цветов" />
+          <img class="ph-img" src="media/wine.jpg" alt="Иллюстрация: напиток вместо цветов" />
+        </div>
+        <p class="wishes__note">или</p>
+        <div class="ph-wrap ph-wrap--wine">
+          <img class="ph-img" src="media/lego.jpg" alt="Иллюстрация: lego вместо напитка" />
         </div>
         <p class="wishes__note">вместо цветов</p>
       </div>
