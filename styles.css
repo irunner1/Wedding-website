@@ -119,11 +119,12 @@ img {
 
 .ph-wrap--colors-gallery {
   flex: 0 0 42vw;
-  max-width: 8rem;
-  min-width: 5rem;
+  max-width: 3rem;
+  min-width: 2rem;
   aspect-ratio: 3 / 4;
-  border-radius: 5px;
   box-shadow: var(--shadow-soft);
+  width: 100%;
+  overflow: hidden;
 }
 
 .ph-wrap--wine {
@@ -633,8 +634,12 @@ html:not(.guest-special) .timeline__item[data-special-only] {
 
 .dress__gallery-colors {
   display: flex;
-  gap: 0.85rem;
-  width: max-content;
+  justify-content: center;
+  gap: 0.2rem;
+  padding-bottom: 0.35rem;
+  flex-wrap: wrap;
+  max-width: calc((3rem * 6) + (0.2rem * 5));
+  margin: 0 auto;
 }
 
 .wishes__title {
@@ -1009,6 +1014,21 @@ html:not(.guest-special) .timeline__item[data-special-only] {
 
   .timeline__item {
     column-gap: 0.65rem;
+  }
+}
+
+
+@media (max-width: 350px) {
+  .dress__gallery-colors {
+    gap: 0.15rem;
+    padding-bottom: 0.25rem;
+    max-width: 100%;
+  }
+
+  .ph-wrap--colors-gallery {
+    flex: 0 0 calc(33.33% - 0.15rem);
+    max-width: calc(33.33% - 0.15rem);
+    min-width: 2.5rem;
   }
 }
 
