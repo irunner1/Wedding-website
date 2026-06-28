@@ -318,3 +318,11 @@
 
   toggleAlcoholOther();
 })();
+
+
+const gallery = document.querySelector('.dress__gallery-scroll');
+
+gallery.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  gallery.scrollLeft += e.deltaY;
+}, { passive: false });
